@@ -1,4 +1,8 @@
 - x clean up create-react-app to blank page
 - x install SASS 
 - x get three JSON files from Northwind: customers, orders, products
-- .. show all customers in list
+- show all customers in list
+- x show city in parentheses
+- .. only show customers from London
+
+- show all cities in total list from london as red

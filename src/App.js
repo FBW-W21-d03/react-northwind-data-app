@@ -7,9 +7,9 @@ function App() {
 		  <h1>Northwind Data Site</h1>
 		  <div>There are {customers.length} customers.</div>
 		  <ul>
-			  {customers.map(customer => {
+			  {customers.filter(m => m.address.city === "London").map((customer, index) => {
 				  return (
-					  <li>{customer.companyName}</li>
+					  <li key={index}>{customer.companyName} ({customer.address.city})</li>
 				  )
 			  })}
 		  </ul>
