@@ -6,6 +6,13 @@ function App() {
     <div className="App">
 		  <h1>Northwind Data Site</h1>
 		  <div>There are {customers.length} customers.</div>
+		  <ul>
+			  {customers.map(customer => {
+				  return (
+					  <li>{customer.companyName}</li>
+				  )
+			  })}
+		  </ul>
     </div>
   );
 }
