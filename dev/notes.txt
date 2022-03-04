@@ -1,2 +1,3 @@
 - x clean up create-react-app to blank page
-- .. install SASS 
+- x install SASS 
+- .. get three JSON files from Northwind: customers, orders, products
