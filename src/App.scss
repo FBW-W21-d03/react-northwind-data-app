@@ -1,7 +1,104 @@
+:root {
+  --color-primary: #577590;
+  --color-primary-light: #b5c5d2;
+  --color-highlight: #f3722c;
+  --color-highlight-active: #d7530c;
+  --border-radius: 8px;
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  ul {
+    list-style: none;
+  }
+}
+
 .App {
-	margin: 0;
-	padding: 20px;
-	h1 {
-		color: rgb(165, 112, 42);
-	}
+  font-size: 1.6rem;
+  margin: 0;
+  margin-top: 60px;
+  padding: 20px;
+  table {
+    border-collapse: collapse;
+    tr {
+      border-bottom: 1px solid var(--color-primary-light);
+      &:not(.headline) {
+        &:hover {
+          background-color: var(--color-primary);
+          color: white;
+        }
+        th,
+        td {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      th,
+      td {
+        text-align: start;
+        padding: 6px 16px;
+        white-space: nowrap;
+        &.numeric {
+          text-align: end;
+        }
+      }
+    }
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    .title {
+      white-space: nowrap;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .search-bar {
+      padding: 0 20px;
+      display: flex;
+      flex-grow: 1;
+      input {
+        height: 30px;
+        width: 50%;
+        min-width: 200px;
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+        padding: 2px 10px;
+        border: none;
+        &:focus {
+          border: none;
+          outline: none;
+        }
+      }
+      button {
+        padding: 0 8px;
+        border: none;
+        color: white;
+        background-color: var(--color-highlight);
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        &:hover {
+          cursor: pointer;
+        }
+        &:active {
+          background-color: var(--color-highlight-active);
+        }
+        div {
+          display: flex;
+        }
+        .icon {
+          font-size: 2rem;
+          vertical-align: center;
+        }
+      }
+    }
+  }
 }
