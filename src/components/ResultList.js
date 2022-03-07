@@ -1,4 +1,8 @@
-export const ResultList = ({ customers = [], city }) => {
+export const ResultList = ({
+  customers = [],
+  city,
+  onSelectItem = () => {},
+}) => {
   return (
     <>
       <h1 style={{ marginBottom: 12 }}>
@@ -14,7 +18,11 @@ export const ResultList = ({ customers = [], city }) => {
         </tr>
         {customers.map((customer) => {
           return (
-            <tr>
+            <tr
+              onClick={() => {
+                onSelectItem(customer.customerID);
+              }}
+            >
               <td>{customer.customerID}</td>
               <td>{customer.companyName}</td>
               <td className="numeric">??</td>

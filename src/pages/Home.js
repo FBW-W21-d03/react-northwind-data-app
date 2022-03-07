@@ -1,14 +1,24 @@
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { ResultList } from "../components/ResultList";
+import customers from "../data/customers.json";
 
 export const Home = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
   const query = searchParams.get("q");
+  const navigate = useNavigate();
+
   return (
     <>
-      <h1>Home</h1>
-      <p>Query={query}</p>
-      <Link to="/customers/abc">Customer abc</Link>
+      <ResultList
+        customers={customers.filter(
+          (customer) => customer.address.city === query
+        )}
+        city={query}
+        onSelectItem={(id) => {
+          navigate(`/customers/${id}`);
+        }}
+      />
     </>
   );
 };
