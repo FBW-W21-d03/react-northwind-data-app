@@ -8,6 +8,10 @@ export const Home = () => {
   const query = searchParams.get("q");
   const navigate = useNavigate();
 
+  if (query.length === 0) {
+    return <h1>Bitte geben Sie eine Stadt ein</h1>;
+  }
+
   return (
     <>
       <ResultList
