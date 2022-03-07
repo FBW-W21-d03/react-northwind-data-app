@@ -1,9 +1,9 @@
 import { SearchBar } from "./SearchBar";
-export const Header = ({ title }) => {
+export const Header = ({ title, onSearchTermChanged = () => {} }) => {
   return (
     <div className="header">
       <h1 className="title">{title}</h1>
-      <SearchBar />
+      <SearchBar onSearchTermChanged={onSearchTermChanged} />
     </div>
   );
 };

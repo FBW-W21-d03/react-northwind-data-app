@@ -1,20 +1,26 @@
 import "./App.scss";
+import { useState } from "react";
 import customers from "./data/customers.json";
 import orders from "./data/orders.json";
 import { Header } from "./components/Header";
 import { ResultList } from "./components/ResultList";
 
-//test
-
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearchTermChange = (newSearchTerm) => {
+    setSearchTerm(newSearchTerm);
+  };
   return (
     <div className="App">
-      <Header title="Northwind Data" />
+      <Header
+        title="Northwind Data"
+        onSearchTermChanged={handleSearchTermChange}
+      />
       {/* <div>There are {customers.length} customers.</div> */}
       <ResultList
-        city="London"
+        city={searchTerm}
         customers={customers.filter(
-          (customer) => customer.address?.city === "London"
+          (customer) => customer.address?.city === searchTerm
         )}
       />
       {/* <ul>
