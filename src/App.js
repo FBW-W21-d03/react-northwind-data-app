@@ -11,7 +11,12 @@ function App() {
     <div className="App">
       <Header title="Northwind Data" />
       {/* <div>There are {customers.length} customers.</div> */}
-      <ResultList customers={customers} />
+      <ResultList
+        city="London"
+        customers={customers.filter(
+          (customer) => customer.address?.city === "London"
+        )}
+      />
       {/* <ul>
         {customers
           .filter((m) => m.address.city === "London")
