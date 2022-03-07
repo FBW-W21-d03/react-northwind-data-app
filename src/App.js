@@ -1,9 +1,9 @@
 import "./App.scss";
 import { useState } from "react";
-import customers from "./data/customers.json";
 import orders from "./data/orders.json";
 import { Header } from "./components/Header";
 import { ResultList } from "./components/ResultList";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,13 +16,8 @@ function App() {
         title="Northwind Data"
         onSearchTermChanged={handleSearchTermChange}
       />
-      {/* <div>There are {customers.length} customers.</div> */}
-      <ResultList
-        city={searchTerm}
-        customers={customers.filter(
-          (customer) => customer.address?.city === searchTerm
-        )}
-      />
+      <Outlet />
+      
       {/* <ul>
         {customers
           .filter((m) => m.address.city === "London")
