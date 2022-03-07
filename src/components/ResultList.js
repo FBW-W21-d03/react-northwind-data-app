@@ -1,4 +1,4 @@
-export const ResultList = () => {
+export const ResultList = ({ customers = [] }) => {
   return (
     <table>
       <tr className="headline">
@@ -8,27 +8,20 @@ export const ResultList = () => {
         <th>Kontaktperson</th>
         <th>Adresse</th>
       </tr>
-      <tr>
-        <td>abcde</td>
-        <td>Firma Müller</td>
-        <td className="numeric">12</td>
-        <td>Hans Mustermann</td>
-        <td>Teststraße 12, 12345 Neustadt</td>
-      </tr>
-      <tr>
-        <td>abcde</td>
-        <td>Firma Müller</td>
-        <td className="numeric">12</td>
-        <td>Hans Mustermann</td>
-        <td>Teststraße 12, 12345 Neustadt</td>
-      </tr>
-      <tr>
-        <td>abcde</td>
-        <td>Firma Müller</td>
-        <td className="numeric">12</td>
-        <td>Hans Mustermann</td>
-        <td>Teststraße 12, 12345 Neustadt</td>
-      </tr>
+      {customers.map((customer) => {
+        return (
+          <tr>
+            <td>{customer.customerID}</td>
+            <td>{customer.companyName}</td>
+            <td className="numeric">??</td>
+            <td>{customer.contactName}</td>
+            <td>
+              {customer.address?.street}, {customer.address?.postalCode}{" "}
+              {customer.address?.city}
+            </td>
+          </tr>
+        );
+      })}
     </table>
   );
 };
